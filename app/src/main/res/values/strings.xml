@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SleepingApp</string>
+    <string name="welcome">Welcome to my chat app</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
+    <string name="warning_sign_up">Password or username is invalid, please try again</string>
+    <string name="warning_match_pass">Those passwords did not match, please try again</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="invalid_credentials">The email address is badly formatted</string>
+    <!--pass don't strong-->
+    <string name="weak_password">The given password is invalid. [ Password should be at least 6 characters ]</string>
+    <string name="user_collision">The email address is already in use by another account.</string>
+    <string name="email_empty">The email isn't allowed empty</string>
+</resources>
