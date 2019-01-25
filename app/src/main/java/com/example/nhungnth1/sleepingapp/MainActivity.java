@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     private void gotoSignUp() {
         SignUpFragment signUpFragment = new SignUpFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        ft.replace(R.id.rl_main, signUpFragment);
         ft.add(R.id.rl_main, signUpFragment);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.addToBackStack(null);

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_message"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/rv_enter"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+    <RelativeLayout
+        android:id="@+id/rv_enter"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:padding="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:id="@+id/iv_add"
+            style="@style/footer_item"
+            android:layout_alignParentLeft="true"/>
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_toRightOf="@+id/iv_add"
+            style="@style/footer_item"/>
+        <ImageView
+            android:id="@+id/iv_take_photo"
+            style="@style/footer_item"
+            android:layout_toRightOf="@+id/iv_img"/>
+        <ImageView
+            android:id="@+id/iv_voice"
+            style="@style/footer_item"
+            android:layout_toRightOf="@+id/iv_take_photo"/>
+        <EditText
+            android:id="@+id/edt_message"
+            android:background="@drawable/shape_border"
+            android:layout_width="@dimen/_170sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:text="Message"
+            android:layout_toLeftOf="@+id/iv_icon"
+            android:padding="@dimen/_5sdp"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/iv_icon"
+            style="@style/footer_item"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>
