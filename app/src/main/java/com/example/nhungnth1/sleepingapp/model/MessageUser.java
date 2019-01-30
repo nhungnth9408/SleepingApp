@@ -1,8 +1,6 @@
 package com.example.nhungnth1.sleepingapp.model;
 
-import android.provider.SyncStateContract;
-
-import com.example.nhungnth1.sleepingapp.common.Constants;
+import com.example.nhungnth1.sleepingapp.common.AppConst;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -57,10 +55,10 @@ public class MessageUser {
 
 
     public String getDateString() {
-        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(Constants.GMT_TIME));
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(AppConst.GMT_TIME));
         Date currentLocalTime = cal.getTime();
-        DateFormat date = new SimpleDateFormat(Constants.FORMAT_TIME);
-        date.setTimeZone(TimeZone.getTimeZone(Constants.GMT_TIME));
+        DateFormat date = new SimpleDateFormat(AppConst.FORMAT_TIME);
+        date.setTimeZone(TimeZone.getTimeZone(AppConst.GMT_TIME));
         String localTime = date.format(currentLocalTime);
         return localTime;
     }

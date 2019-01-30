@@ -39,7 +39,7 @@ public class ItemMessage extends BaseItemViewHolder<MessageUser> {
     @BindView(R.id.cv_message)
     CardView mCvMessage;
     @BindView(R.id.tv_message)
-    CardView mTvMessage;
+    TextView mTvMessage;
     @BindView(R.id.rl_message)
     RelativeLayout mRlMessage;
 
@@ -54,36 +54,37 @@ public class ItemMessage extends BaseItemViewHolder<MessageUser> {
     @Override
     public void bind(MessageUser messageUser, int position) {
         mTxtTime.setText(messageUser.getDateString());
+        mTvMessage.setText(messageUser.getText());
         //check xem nội dung của tin nhắn có phải là ảnh được lưu trên server không(ảnh được lưu trên server có có link dạng firebasestorage.googleapis.com/)
-        if(messageUser.getText().contains("firebasestorage.googleapis.com")) {
-            mIvServer.setVisibility(View.VISIBLE);
-            mProgressBar.setVisibility(View.VISIBLE);
-            mTvMessage.setVisibility(View.GONE);
-            Glide.with(mContext)
-                    .load(messageUser.getText())
-                    .listener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            mProgressBar.setVisibility(View.GONE);
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            return false;
-                        }
-                    });
-        } else {
-            mIvServer.setVisibility(View.GONE);
-            mTvMessage.setVisibility(View.VISIBLE);
-        }
-
-        if(sFirebaseAuth.getCurrentUser() != null && messageUser.getSender() != null) {
-            mIvAvatar.setVisibility(View.VISIBLE);
-            mRlMessage.setGravity(Gravity.RIGHT);
-        } else {
-            mIvAvatar.setVisibility(View.GONE);
-            mRlMessage.setGravity(Gravity.LEFT);
-        }
+//        if(messageUser.getText().contains("firebasestorage.googleapis.com")) {
+//            mIvServer.setVisibility(View.VISIBLE);
+//            mProgressBar.setVisibility(View.VISIBLE);
+//            mTvMessage.setVisibility(View.GONE);
+//            Glide.with(mContext)
+//                    .load(messageUser.getText())
+//                    .listener(new RequestListener<Drawable>() {
+//                        @Override
+//                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+//                            mProgressBar.setVisibility(View.GONE);
+//                            return false;
+//                        }
+//
+//                        @Override
+//                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+//                            return false;
+//                        }
+//                    });
+//        } else {
+//            mIvServer.setVisibility(View.GONE);
+//            mTvMessage.setVisibility(View.VISIBLE);
+//        }
+//
+//        if(sFirebaseAuth.getCurrentUser() != null && messageUser.getSender() != null) {
+//            mIvAvatar.setVisibility(View.VISIBLE);
+//            mRlMessage.setGravity(Gravity.RIGHT);
+//        } else {
+//            mIvAvatar.setVisibility(View.GONE);
+//            mRlMessage.setGravity(Gravity.LEFT);
+//        }
     }
 }

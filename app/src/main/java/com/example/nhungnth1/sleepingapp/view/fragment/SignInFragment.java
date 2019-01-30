@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.example.nhungnth1.sleepingapp.R;
 import com.example.nhungnth1.sleepingapp.view.base.BaseFragment;
@@ -25,6 +27,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SignInFragment extends BaseFragment implements SignInView{
+    @BindView(R.id.rl_main_sign_in)
+    RelativeLayout mRlMainSignIn;
     @BindView(R.id.edt_username)
     EditText mEdtUsername;
     @BindView(R.id.password)
@@ -86,6 +90,7 @@ public class SignInFragment extends BaseFragment implements SignInView{
                     Log.i("signIn", "onComplete ");
                     if(task.isSuccessful()) {
                         FirebaseUser user = mFirebaseAuth.getCurrentUser();
+                        gotoChatScreen();
                     } else {
                         try{
                             throw task.getException();
@@ -95,6 +100,17 @@ public class SignInFragment extends BaseFragment implements SignInView{
                     }
                 }
             });
+    }
+
+    private void gotoChatScreen() {
+        Bundle bundle = new Bundle();
+        String email = mEdtUsername.getText().toString();
+        bundle.putString("UID", email);
+        ChatFragment chatFragment = new ChatFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.rl_main_sign_in, chatFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     @Override

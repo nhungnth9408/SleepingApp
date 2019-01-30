@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:padding="@dimen/_10sdp"
+        android:background="@color/colorPrimary"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true">
         <ImageView
@@ -31,23 +32,27 @@
             android:id="@+id/iv_take_photo"
             style="@style/footer_item"
             android:layout_toRightOf="@+id/iv_img"/>
-        <ImageView
-            android:id="@+id/iv_voice"
-            style="@style/footer_item"
-            android:layout_toRightOf="@+id/iv_take_photo"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_voice"-->
+            <!--style="@style/footer_item"-->
+            <!--android:layout_toRightOf="@+id/iv_take_photo"/>-->
         <EditText
             android:id="@+id/edt_message"
             android:background="@drawable/shape_border"
             android:layout_width="@dimen/_170sdp"
             android:layout_height="@dimen/_50sdp"
-            android:text="Message"
-            android:layout_toLeftOf="@+id/iv_icon"
+            android:layout_toLeftOf="@+id/ib_send"
             android:padding="@dimen/_5sdp"
+            android:hint="Message"
             android:layout_centerInParent="true"/>
-        <ImageView
-            android:id="@+id/iv_icon"
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_icon"-->
+            <!--style="@style/footer_item"-->
+            <!--android:layout_alignParentRight="true"/>-->
+        <ImageButton
+            android:id="@+id/ib_send"
             style="@style/footer_item"
+            android:src="@drawable/ic_send"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
-
 </RelativeLayout>

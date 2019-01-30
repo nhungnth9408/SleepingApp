@@ -14,6 +14,7 @@ import com.example.nhungnth1.sleepingapp.view.base.baseadapter.BaseRecyclerAdapt
 import com.example.nhungnth1.sleepingapp.view.viewholder.ItemMessage;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChatAdapter extends BaseRecyclerAdapter<MessageUser, ItemMessage> {
@@ -24,6 +25,7 @@ public class ChatAdapter extends BaseRecyclerAdapter<MessageUser, ItemMessage> {
 
     public ChatAdapter(Context context) {
         super(context);
+        listMessage = new ArrayList<>();
     }
 
     public ChatAdapter(Context context, List<MessageUser> datas) {
