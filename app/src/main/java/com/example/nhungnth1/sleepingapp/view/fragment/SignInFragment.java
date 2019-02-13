@@ -103,10 +103,11 @@ public class SignInFragment extends BaseFragment implements SignInView{
     }
 
     private void gotoChatScreen() {
-        Bundle bundle = new Bundle();
-        String email = mEdtUsername.getText().toString();
-        bundle.putString("UID", email);
+//        Bundle bundle = new Bundle();
+//        String email = mEdtUsername.getText().toString();
+//        bundle.putString("UID", email);
         ChatFragment chatFragment = new ChatFragment();
+//        chatFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.rl_main_sign_in, chatFragment);
         transaction.addToBackStack(null);

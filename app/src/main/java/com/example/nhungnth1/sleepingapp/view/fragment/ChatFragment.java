@@ -36,6 +36,7 @@ public class ChatFragment extends Fragment implements ChatView {
     private ChatPresenter mChatPresenter;
     private ChatAdapter mChatAdapter;
     private List<MessageUser> mListMessage;
+    private String uid;
     public ChatFragment() {
         mListMessage = new ArrayList<>();
     }
@@ -48,6 +49,8 @@ public class ChatFragment extends Fragment implements ChatView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        Bundle bundle = getArguments();
+//        uid = bundle.get("UID").toString();
     }
 
     @Nullable
@@ -87,7 +90,6 @@ public class ChatFragment extends Fragment implements ChatView {
         messageUser.setDateString(DateUtils.mHourFormat.format(new Date()));
         mListMessage.add(messageUser);
         mChatAdapter.notifyItemChanged(mListMessage.indexOf(messageUser));
-
         mChatPresenter.getProfile();
         mChatPresenter.sendToServer(messageUser);
     }

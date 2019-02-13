@@ -19,6 +19,8 @@ import android.view.View;
 
 import com.example.nhungnth1.sleepingapp.view.fragment.SignInFragment;
 import com.example.nhungnth1.sleepingapp.view.fragment.SignUpFragment;
+import com.example.nhungnth1.sleepingapp.view.fragment.UploadImgFragment;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -87,9 +89,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gotoSignIn() {
-        SignInFragment signInFragment = new SignInFragment();
+//        SignInFragment signInFragment = new SignInFragment();
+        UploadImgFragment uploadImgFragment = new UploadImgFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.rl_main, signInFragment);
+        ft.add(R.id.rl_main, uploadImgFragment);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.addToBackStack(null);
         ft.commit();

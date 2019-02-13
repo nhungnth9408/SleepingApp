@@ -1,11 +1,11 @@
 package com.example.nhungnth1.sleepingapp.presenter;
 
 import android.net.Uri;
+import android.util.Log;
 
 import com.example.nhungnth1.sleepingapp.model.MessageUser;
 import com.example.nhungnth1.sleepingapp.utilities.DateUtils;
 import com.example.nhungnth1.sleepingapp.view.mvpview.ChatView;
-import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
@@ -20,6 +20,7 @@ public class ChatPresenter {
     public static String COLUMN_TEXT = "text";
     public static String COLUMN_SENDER = "sender";
     protected FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+    private String mUid;
     public ChatPresenter(ChatView chatView) {
         this.mChatView = chatView;
     }
@@ -34,6 +35,8 @@ public class ChatPresenter {
     }
     public void getProfile(){
         FirebaseUser user = mFirebaseAuth.getCurrentUser();
+        Log.i("UID", user.getUid());
+        mUid = user.getUid();
         if(user != null) {
             for(UserInfo profile : user.getProviderData()) {
                 // Id of the provider (ex: google.com)
@@ -43,7 +46,7 @@ public class ChatPresenter {
                 // The user's ID, unique to the Firebase project. Do NOT use this value to
                 // authenticate with your backend server, if you have one. Use
                 // FirebaseUser.getIdToken() instead.
-                String uid = profile.getUid();
+//                String mUid = profile.getUid();
 
                 String name = profile.getDisplayName();
                 String email = profile.getEmail();
@@ -66,7 +69,7 @@ public class ChatPresenter {
         String userId = reference.push().getKey();
         // pushing user to 'users' node using the userId
 //        reference.child(userId).setValue(obj);
-        reference.child("user").setValue(obj);
+        reference.child(mUid).child("user").setValue(obj);
     }
 
     public void addMessageToAdapter() {
